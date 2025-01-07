@@ -2,21 +2,17 @@ name: PR Agent
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, reopened, ready_for_review, synchronize]
   issue_comment:
-    types: [created, edited]
-
 jobs:
-  pr_review:
-    runs-on: ubuntu-latest
-
+  pr_agent_job:
     if: ${{ github.event.sender.type != 'Bot' }}
-
+    runs-on: ubuntu-latest
     permissions:
       issues: write
       pull-requests: write
       contents: write
-
+    name: Run pr agent on every pull request, respond to user comments
     steps:
       - name: PR Agent action step
         id: pragent
