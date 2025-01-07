@@ -18,10 +18,8 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Run PR-agent
+      - name: PR Agent action step
+        id: pragent
         uses: Codium-ai/pr-agent@main
         env:
           OPENAI_KEY: ${{ secrets.OPEN_API_KEY }}
