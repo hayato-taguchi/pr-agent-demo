@@ -1,0 +1,19 @@
+name: PR Agent
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  pr_review:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run PR-agent
+        uses: Codium-ai/pr-agent@main
+        with:
+          api_key: ${{ secrets.OPEN_API_KEY }}
+          config_file: .github/pr-agent-config.yml

@@ -1,0 +1,11 @@
+review:
+  enabled: true
+  language: 'ja' # または "ja"
+  max_tokens: 2048
+
+describ:
+  enabled: true
+  language: 'ja'
+
+improve:
+  enabled: true
