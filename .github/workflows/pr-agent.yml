@@ -24,7 +24,7 @@ jobs:
       - name: Run PR-agent
         uses: Codium-ai/pr-agent@main
         env:
-          api_key: ${{ secrets.OPEN_API_KEY }}
+          OPENAI_KEY: ${{ secrets.OPEN_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           config_file: .github/pr-agent-config.yml
           github_action_config.auto_review: 'true' # enable\disable auto review
